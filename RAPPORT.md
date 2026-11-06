@@ -1,7 +1,6 @@
 # PROJET — Portail de suivi des tournées
 
-**Auteur** : Beka Kamewe Manuel — **Date** : 05/11/2026 — **Cible** : srv-core (Rocky Linux 9.8), test réseau depuis srv-edge, départ de l'instantané `04-debut-projet`.
-Les captures de `verifications/` sont prises sur la console des VM. Les sorties longues sont dans `preuves/`.
+**Auteur** : Beka Kamewe Manuel — **Date** : 05/11/2026 — **Cible** : srv-core (Rocky Linux 9.8), test réseau depuis srv-edge, 
 
 ## 1. Tableau de conformité
 
