@@ -1,0 +1,35 @@
+# file: /srv/helios/suivi
+# owner: root
+# group: suivi
+user::rwx
+user:helios-suivi:r-x
+user:zabbix:--x
+group::r-x
+mask::r-x
+other::---
+
+# file: /srv/helios/suivi/www
+# owner: root
+# group: suivi
+# flags: -s-
+user::rwx
+user:helios-suivi:rwx
+user:zabbix:--x
+group::rwx
+mask::rwx
+other::---
+default:user::rwx
+default:user:helios-suivi:r-x
+default:group::rwx
+default:mask::rwx
+default:other::---
+
+# file: /srv/helios/suivi/www/index.html
+# owner: lea
+# group: suivi
+user::rw-
+user:helios-suivi:r-x	#effective:r--
+group::rwx	#effective:rw-
+mask::rw-
+other::---
+

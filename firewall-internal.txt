@@ -1,0 +1,15 @@
+internal (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: bond0 bond0.42
+  sources: 
+  services: 
+  ports: 10051/tcp 2242/tcp 8080/tcp
+  protocols: 
+  forward: yes
+  masquerade: no
+  forward-ports: 
+  source-ports: 
+  icmp-blocks: 
+  rich rules: 
+	rule source ipset="helios-blacklist" drop

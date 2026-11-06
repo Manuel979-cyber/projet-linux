@@ -1,0 +1,33 @@
+[Unit]
+Description=Publication de etat.json du portail de suivi Helios
+After=helios-collect.service
+ConditionPathExists=/var/lib/helios/telemetry.csv
+
+[Service]
+Type=oneshot
+User=helios-suivi
+Group=helios-suivi
+ExecStart=/usr/local/sbin/helios-suivi-publish.sh
+
+# Ne peut écrire que dans le répertoire publié
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/srv/helios/suivi/www
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectHostname=yes
+ProtectClock=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+CapabilityBoundingSet=
+SystemCallArchitectures=native
+SystemCallFilter=@system-service

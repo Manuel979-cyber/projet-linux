@@ -1,0 +1,11 @@
+# /etc/sudoers.d/92-helios-suivi — exploitation du portail de suivi par le groupe suivi (projet, E5)
+# Chaque commande est écrite avec TOUS ses arguments : sudo refuse alors tout argument
+# supplémentaire (pas de joker *, donc pas de --vacuum-*, --file=, -D, --rotate...).
+# --no-pager : pas de pager (less) lancé en root, donc pas d'évasion de shell par « !sh ».
+# Pas de NOPASSWD : lea retape son mot de passe.
+Cmnd_Alias SUIVI_PORTAIL = /usr/bin/systemctl restart helios-suivi.service, \
+                           /usr/bin/systemctl status --no-pager helios-suivi.service
+Cmnd_Alias SUIVI_PUBLIER = /usr/bin/systemctl start helios-suivi-publish.service
+Cmnd_Alias SUIVI_JOURNAL = /usr/bin/journalctl --no-pager -n 100 -u helios-suivi.service, \
+                           /usr/bin/journalctl --no-pager -n 100 -u helios-suivi-publish.service
+%suivi ALL=(root) SUIVI_PORTAIL, SUIVI_PUBLIER, SUIVI_JOURNAL

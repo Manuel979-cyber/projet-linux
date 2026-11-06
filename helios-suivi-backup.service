@@ -1,0 +1,23 @@
+[Unit]
+Description=Sauvegarde du portail de suivi Helios (ACL + SHA-256, 7 archives)
+RequiresMountsFor=/srv/helios/archives
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/helios-suivi-backup.sh
+Nice=10
+IOSchedulingClass=idle
+# Lecture seule partout, sauf le répertoire de sauvegarde
+ProtectSystem=strict
+ReadWritePaths=/srv/helios/archives
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+NoNewPrivileges=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX
+RestrictNamespaces=yes
+LockPersonality=yes
+CapabilityBoundingSet=CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE CAP_FOWNER CAP_CHOWN

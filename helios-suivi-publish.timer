@@ -1,0 +1,11 @@
+[Unit]
+Description=Publie etat.json du portail de suivi toutes les 2 minutes
+
+[Timer]
+OnBootSec=30s
+OnCalendar=*:0/2
+AccuracySec=5s
+Unit=helios-suivi-publish.service
+
+[Install]
+WantedBy=timers.target

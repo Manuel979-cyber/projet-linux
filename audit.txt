@@ -1,0 +1,11 @@
+[OK] E1 - comptes lea / helios-suivi et groupe suivi
+[OK] E2 - repertoire publie (2770 root:suivi, ACL, zabbix --x)
+[OK] E3 - script de publication et etat.json
+[OK] E4 - units du portail et de la publication
+[OK] E5 - delegation sudo du groupe suivi
+[OK] E6 - pare-feu (8080 uniquement en internal)
+[OK] E7 - non-regression securite (sshd, watch-auth, journald, SELinux)
+[OK] E8 - supervision Zabbix (agent, sondes, sysstat)
+[OK] E9 - sauvegarde (archive, empreinte, rotation, timer)
+Bilan : 9/9
+rc=0
